@@ -33,17 +33,20 @@ export default function Home() {
   const electricalServices = [
     {
       title: "Instalasi Listrik Rumah",
-      description: "Pemasangan sistem kelistrikan baru dengan standar keselamatan tertinggi",
+      description:
+        "Pemasangan sistem kelistrikan baru dengan standar keselamatan tertinggi",
       icon: "⚡",
     },
     {
       title: "Tambah Daya",
-      description: "Upgrade kapasitas listrik untuk kebutuhan daya yang lebih besar",
+      description:
+        "Upgrade kapasitas listrik untuk kebutuhan daya yang lebih besar",
       icon: "🔌",
     },
     {
       title: "Perbaikan Konslet",
-      description: "Diagnosis dan perbaikan masalah kelistrikan dengan cepat dan aman",
+      description:
+        "Diagnosis dan perbaikan masalah kelistrikan dengan cepat dan aman",
       icon: "🔧",
     },
     {
@@ -58,7 +61,8 @@ export default function Home() {
     },
     {
       title: "Panel Listrik",
-      description: "Instalasi dan maintenance panel listrik untuk rumah dan kantor",
+      description:
+        "Instalasi dan maintenance panel listrik untuk rumah dan kantor",
       icon: "📊",
     },
   ];
@@ -97,11 +101,26 @@ export default function Home() {
   ];
 
   const advantages = [
-    { title: "Teknisi Profesional", description: "Tim berpengalaman dan tersertifikasi" },
-    { title: "Pengerjaan Rapi", description: "Hasil instalasi yang rapih dan profesional" },
-    { title: "Fast Response", description: "Respon cepat untuk panggilan darurat" },
-    { title: "Bergaransi", description: "Semua pekerjaan dilengkapi garansi resmi" },
-    { title: "Survey Gratis", description: "Konsultasi dan survey lokasi tanpa biaya" },
+    {
+      title: "Teknisi Profesional",
+      description: "Tim berpengalaman dan tersertifikasi",
+    },
+    {
+      title: "Pengerjaan Rapi",
+      description: "Hasil instalasi yang rapih dan profesional",
+    },
+    {
+      title: "Fast Response",
+      description: "Respon cepat untuk panggilan darurat",
+    },
+    {
+      title: "Bergaransi",
+      description: "Semua pekerjaan dilengkapi garansi resmi",
+    },
+    {
+      title: "Survey Gratis",
+      description: "Konsultasi dan survey lokasi tanpa biaya",
+    },
   ];
 
   const testimonials = [
@@ -109,19 +128,22 @@ export default function Home() {
       name: "Ibu Siti",
       location: "Makassar",
       rating: 5,
-      comment: "Sangat profesional dan cepat. Instalasi listrik rumah saya selesai dalam 2 hari dengan hasil yang rapi.",
+      comment:
+        "Sangat profesional dan cepat. Instalasi listrik rumah saya selesai dalam 2 hari dengan hasil yang rapi.",
     },
     {
       name: "Pak Budi",
       location: "Gowa",
       rating: 5,
-      comment: "Teknisinya ramah dan berpengalaman. CCTV yang dipasang bekerja sempurna dan bisa diakses dari HP.",
+      comment:
+        "Teknisinya ramah dan berpengalaman. CCTV yang dipasang bekerja sempurna dan bisa diakses dari HP.",
     },
     {
       name: "PT Maju Jaya",
       location: "Makassar",
       rating: 5,
-      comment: "Layanan maintenance CCTV kantor kami sangat memuaskan. Response time mereka luar biasa cepat.",
+      comment:
+        "Layanan maintenance CCTV kantor kami sangat memuaskan. Response time mereka luar biasa cepat.",
     },
   ];
 
@@ -138,23 +160,28 @@ export default function Home() {
   const faqs = [
     {
       question: "Apakah ada garansi untuk pekerjaan?",
-      answer: "Ya, semua pekerjaan kami dilengkapi dengan garansi resmi sesuai dengan jenis layanan.",
+      answer:
+        "Ya, semua pekerjaan kami dilengkapi dengan garansi resmi sesuai dengan jenis layanan.",
     },
     {
       question: "Bisa panggilan darurat?",
-      answer: "Tentu! Kami melayani panggilan darurat 24/7 untuk masalah kelistrikan mendesak.",
+      answer:
+        "Tentu! Kami melayani panggilan darurat 24/7 untuk masalah kelistrikan mendesak.",
     },
     {
       question: "Melayani luar kota?",
-      answer: "Ya, kami melayani area Makassar dan sekitarnya termasuk Gowa, Maros, dan kota-kota lainnya.",
+      answer:
+        "Ya, kami melayani area Makassar dan sekitarnya termasuk Gowa, Maros, dan kota-kota lainnya.",
     },
     {
       question: "Bisa survey lokasi?",
-      answer: "Bisa! Kami menyediakan survey lokasi gratis untuk menentukan solusi terbaik.",
+      answer:
+        "Bisa! Kami menyediakan survey lokasi gratis untuk menentukan solusi terbaik.",
     },
     {
       question: "Bisa pembayaran transfer?",
-      answer: "Tentu, kami menerima berbagai metode pembayaran termasuk transfer bank.",
+      answer:
+        "Tentu, kami menerima berbagai metode pembayaran termasuk transfer bank.",
     },
   ];
 
@@ -217,7 +244,11 @@ export default function Home() {
       <nav className="fixed top-0 w-full bg-white shadow-sm z-50">
         <div className="container flex justify-between items-center py-4">
           <div className="flex items-center gap-3">
-            <img src="/storage/logo.png" alt="DAENG LISTRIK" className="h-16 w-auto" />
+            <img
+              src="/storage/logo.png"
+              alt="DAENG LISTRIK"
+              className="h-16 w-auto"
+            />
           </div>
 
           {/* Desktop Menu */}
@@ -243,7 +274,9 @@ export default function Home() {
           <button
             className="md:hidden rounded-md p-2 hover:bg-[#F5F5F5] transition"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label={mobileMenuOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
+            aria-label={
+              mobileMenuOpen ? "Tutup menu navigasi" : "Buka menu navigasi"
+            }
           >
             {mobileMenuOpen ? (
               <X className="w-6 h-6 text-[#001B44]" />
@@ -290,11 +323,16 @@ export default function Home() {
                 Solusi Listrik & CCTV Profesional
               </h1>
               <p className="text-xl text-gray-200 mb-8">
-                Melayani dalam dan luar kota Makassar dengan teknisi berpengalaman dan hasil kerja terjamin.
+                Melayani dalam dan luar kota Makassar dengan teknisi
+                berpengalaman dan hasil kerja terjamin.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Button
                     size="lg"
                     className="w-full sm:w-auto bg-[#FFC107] text-[#001B44] hover:bg-yellow-500 font-bold"
@@ -344,16 +382,22 @@ export default function Home() {
       <section className="py-20 bg-[#F5F5F5]">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#001B44] mb-4">Tentang DAENG LISTRIK</h2>
+            <h2 className="text-4xl font-bold text-[#001B44] mb-4">
+              Tentang DAENG LISTRIK
+            </h2>
             <p className="text-lg text-[#2C3E50]">
-              Kami adalah penyedia layanan jasa kelistrikan dan CCTV terpercaya di Makassar dengan komitmen memberikan
-              solusi profesional dan berkualitas tinggi untuk rumah, kantor, dan industri.
+              Kami adalah penyedia layanan jasa kelistrikan dan CCTV terpercaya
+              di Makassar dengan komitmen memberikan solusi profesional dan
+              berkualitas tinggi untuk rumah, kantor, dan industri.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
             {advantages.map((adv, idx) => (
-              <Card key={idx} className="p-6 bg-white border-0 shadow-md hover:shadow-lg transition">
+              <Card
+                key={idx}
+                className="p-6 bg-white border-0 shadow-md hover:shadow-lg transition"
+              >
                 <CheckCircle className="w-8 h-8 text-[#FFC107] mb-4" />
                 <h3 className="font-bold text-[#001B44] mb-2">{adv.title}</h3>
                 <p className="text-sm text-[#7A8A99]">{adv.description}</p>
@@ -367,8 +411,12 @@ export default function Home() {
       <section id="services" className="py-20 bg-white">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#001B44] mb-4">Layanan Kelistrikan</h2>
-            <p className="text-lg text-[#2C3E50]">Solusi lengkap untuk semua kebutuhan kelistrikan Anda</p>
+            <h2 className="text-4xl font-bold text-[#001B44] mb-4">
+              Layanan Kelistrikan
+            </h2>
+            <p className="text-lg text-[#2C3E50]">
+              Solusi lengkap untuk semua kebutuhan kelistrikan Anda
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -378,9 +426,15 @@ export default function Home() {
                 className="p-8 bg-gradient-to-br from-[#F5F5F5] to-white border-0 shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
               >
                 <div className="text-5xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-bold text-[#001B44] mb-3">{service.title}</h3>
+                <h3 className="text-xl font-bold text-[#001B44] mb-3">
+                  {service.title}
+                </h3>
                 <p className="text-[#7A8A99] mb-6">{service.description}</p>
-                <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Button className="w-full bg-[#FFC107] text-[#001B44] hover:bg-yellow-500">
                     Pesan Sekarang
                   </Button>
@@ -395,8 +449,12 @@ export default function Home() {
       <section className="py-20 bg-[#F5F5F5]">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#001B44] mb-4">Layanan CCTV</h2>
-            <p className="text-lg text-[#2C3E50]">Sistem keamanan canggih untuk perlindungan maksimal</p>
+            <h2 className="text-4xl font-bold text-[#001B44] mb-4">
+              Layanan CCTV
+            </h2>
+            <p className="text-lg text-[#2C3E50]">
+              Sistem keamanan canggih untuk perlindungan maksimal
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -406,9 +464,15 @@ export default function Home() {
                 className="p-8 bg-white border-0 shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
               >
                 <div className="text-5xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-bold text-[#001B44] mb-3">{service.title}</h3>
+                <h3 className="text-xl font-bold text-[#001B44] mb-3">
+                  {service.title}
+                </h3>
                 <p className="text-[#7A8A99] mb-6">{service.description}</p>
-                <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Button className="w-full bg-[#FFC107] text-[#001B44] hover:bg-yellow-500">
                     Pesan Sekarang
                   </Button>
@@ -423,8 +487,12 @@ export default function Home() {
       <section id="portfolio" className="py-20 bg-white">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#001B44] mb-4">Portofolio Pekerjaan</h2>
-            <p className="text-lg text-[#2C3E50]">Hasil kerja profesional dari proyek-proyek kami</p>
+            <h2 className="text-4xl font-bold text-[#001B44] mb-4">
+              Portofolio Pekerjaan
+            </h2>
+            <p className="text-lg text-[#2C3E50]">
+              Hasil kerja profesional dari proyek-proyek kami
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
@@ -459,8 +527,12 @@ export default function Home() {
       <section id="testimonials" className="py-20 bg-[#F5F5F5]">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#001B44] mb-4">Testimoni Pelanggan</h2>
-            <p className="text-lg text-[#2C3E50]">Kepuasan pelanggan adalah prioritas kami</p>
+            <h2 className="text-4xl font-bold text-[#001B44] mb-4">
+              Testimoni Pelanggan
+            </h2>
+            <p className="text-lg text-[#2C3E50]">
+              Kepuasan pelanggan adalah prioritas kami
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -468,10 +540,15 @@ export default function Home() {
               <Card key={idx} className="p-8 bg-white border-0 shadow-md">
                 <div className="flex items-center gap-2 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-[#FFC107] text-[#FFC107]" />
+                    <Star
+                      key={i}
+                      className="w-5 h-5 fill-[#FFC107] text-[#FFC107]"
+                    />
                   ))}
                 </div>
-                <p className="text-[#2C3E50] mb-6 italic">"{testimonial.comment}"</p>
+                <p className="text-[#2C3E50] mb-6 italic">
+                  "{testimonial.comment}"
+                </p>
                 <div className="border-t border-[#E8E8E8] pt-4">
                   <p className="font-bold text-[#001B44]">{testimonial.name}</p>
                   <p className="text-sm text-[#7A8A99] flex items-center gap-1">
@@ -489,15 +566,22 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#001B44] mb-4">Area Layanan</h2>
-            <p className="text-lg text-[#2C3E50]">Kami melayani seluruh area Makassar dan sekitarnya</p>
+            <h2 className="text-4xl font-bold text-[#001B44] mb-4">
+              Area Layanan
+            </h2>
+            <p className="text-lg text-[#2C3E50]">
+              Kami melayani seluruh area Makassar dan sekitarnya
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <div className="grid grid-cols-2 gap-4">
                 {serviceAreas.map((area, idx) => (
-                  <div key={idx} className="flex items-center gap-3 p-4 bg-[#F5F5F5] rounded-lg">
+                  <div
+                    key={idx}
+                    className="flex items-center gap-3 p-4 bg-[#F5F5F5] rounded-lg"
+                  >
                     <MapPin className="w-5 h-5 text-[#FFC107] flex-shrink-0" />
                     <span className="text-[#2C3E50] font-medium">{area}</span>
                   </div>
@@ -512,7 +596,12 @@ export default function Home() {
                   <Phone className="w-6 h-6 text-[#FFC107] flex-shrink-0 mt-1" />
                   <div>
                     <p className="font-semibold">WhatsApp</p>
-                    <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="text-[#FFC107] hover:underline">
+                    <a
+                      href={whatsappLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#FFC107] hover:underline"
+                    >
                       {whatsappNumber}
                     </a>
                   </div>
@@ -528,7 +617,9 @@ export default function Home() {
                   <Clock className="w-6 h-6 text-[#FFC107] flex-shrink-0 mt-1" />
                   <div>
                     <p className="font-semibold">Jam Operasional</p>
-                    <p className="text-gray-300">Senin - Minggu: 08:00 - 18:00</p>
+                    <p className="text-gray-300">
+                      Senin - Minggu: 08:00 - 18:00
+                    </p>
                     <p className="text-gray-300">Darurat 24/7</p>
                   </div>
                 </div>
@@ -542,14 +633,20 @@ export default function Home() {
       <section className="py-20 bg-[#F5F5F5]">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#001B44] mb-4">Pertanyaan Umum</h2>
-            <p className="text-lg text-[#2C3E50]">Jawaban untuk pertanyaan yang sering diajukan</p>
+            <h2 className="text-4xl font-bold text-[#001B44] mb-4">
+              Pertanyaan Umum
+            </h2>
+            <p className="text-lg text-[#2C3E50]">
+              Jawaban untuk pertanyaan yang sering diajukan
+            </p>
           </div>
 
           <div className="max-w-3xl mx-auto space-y-4">
             {faqs.map((faq, idx) => (
               <Card key={idx} className="p-6 bg-white border-0 shadow-md">
-                <h3 className="font-bold text-[#001B44] mb-3 text-lg">{faq.question}</h3>
+                <h3 className="font-bold text-[#001B44] mb-3 text-lg">
+                  {faq.question}
+                </h3>
                 <p className="text-[#2C3E50]">{faq.answer}</p>
               </Card>
             ))}
@@ -558,15 +655,21 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section id="contact" className="py-20 bg-gradient-to-r from-[#001B44] to-[#003366] text-white">
+      <section
+        id="contact"
+        className="py-20 bg-gradient-to-r from-[#001B44] to-[#003366] text-white"
+      >
         <div className="container text-center">
           <h2 className="text-4xl font-bold mb-6">Siap Memulai Proyek Anda?</h2>
           <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-            Hubungi kami sekarang untuk konsultasi gratis dan dapatkan penawaran terbaik untuk kebutuhan kelistrikan dan
-            CCTV Anda.
+            Hubungi kami sekarang untuk konsultasi gratis dan dapatkan penawaran
+            terbaik untuk kebutuhan kelistrikan dan CCTV Anda.
           </p>
           <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="bg-[#FFC107] text-[#001B44] hover:bg-yellow-500 font-bold">
+            <Button
+              size="lg"
+              className="bg-[#FFC107] text-[#001B44] hover:bg-yellow-500 font-bold"
+            >
               Hubungi WhatsApp Sekarang
             </Button>
           </a>
@@ -579,26 +682,42 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <img src="/storage/logo.png" alt="DAENG LISTRIK" className="h-20 w-auto" />
+                <img
+                  src="/storage/logo.png"
+                  alt="DAENG LISTRIK"
+                  className="h-20 w-auto"
+                />
               </div>
-              <p className="text-gray-300">Solusi kelistrikan dan CCTV profesional untuk Makassar dan sekitarnya.</p>
+              <p className="text-gray-300">
+                Solusi kelistrikan dan CCTV profesional untuk Makassar dan
+                sekitarnya.
+              </p>
             </div>
 
             <div>
               <h4 className="font-bold mb-4">Menu</h4>
               <ul className="space-y-2 text-gray-300">
                 <li>
-                  <a href="#services" className="hover:text-[#FFC107] transition">
+                  <a
+                    href="#services"
+                    className="hover:text-[#FFC107] transition"
+                  >
                     Layanan
                   </a>
                 </li>
                 <li>
-                  <a href="#portfolio" className="hover:text-[#FFC107] transition">
+                  <a
+                    href="#portfolio"
+                    className="hover:text-[#FFC107] transition"
+                  >
                     Portofolio
                   </a>
                 </li>
                 <li>
-                  <a href="#testimonials" className="hover:text-[#FFC107] transition">
+                  <a
+                    href="#testimonials"
+                    className="hover:text-[#FFC107] transition"
+                  >
                     Testimoni
                   </a>
                 </li>
@@ -610,7 +729,12 @@ export default function Home() {
               <ul className="space-y-2 text-gray-300">
                 <li className="flex items-center gap-2">
                   <MessageCircle className="h-4 w-4 text-[#FFC107] shrink-0" />
-                  <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="hover:text-[#FFC107] transition">
+                  <a
+                    href={whatsappLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#FFC107] transition"
+                  >
                     WhatsApp: {whatsappNumber}
                   </a>
                 </li>
@@ -628,7 +752,7 @@ export default function Home() {
             <div>
               <h4 className="font-bold mb-4">Area Layanan</h4>
               <ul className="space-y-2 text-gray-300 text-sm">
-                {serviceAreas.map((area) => (
+                {serviceAreas.map(area => (
                   <li key={area} className="flex items-center gap-2">
                     <Navigation className="h-3.5 w-3.5 text-[#FFC107] shrink-0" />
                     <span>{area}</span>
