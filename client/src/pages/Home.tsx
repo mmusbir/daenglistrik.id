@@ -27,7 +27,7 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("services");
 
-  const whatsappNumber = "087861817876";
+  const whatsappNumber = "+62 878-6181-7876";
   const whatsappLink = `https://wa.me/${whatsappNumber.replace(/\D/g, "")}`;
 
   const electricalServices = [
