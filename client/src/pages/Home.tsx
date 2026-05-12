@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
@@ -12,6 +12,7 @@ import {
   ArrowRight,
   Menu,
   X,
+  MessageCircle,
 } from "lucide-react";
 
 /**
@@ -23,6 +24,7 @@ import {
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("services");
 
   const whatsappNumber = "087861817876";
   const whatsappLink = `https://wa.me/${whatsappNumber.replace(/\D/g, "")}`;
@@ -155,6 +157,53 @@ export default function Home() {
     },
   ];
 
+  const navItems = [
+    { id: "services", label: "Layanan" },
+    { id: "portfolio", label: "Portofolio" },
+    { id: "testimonials", label: "Testimoni" },
+    { id: "contact", label: "Kontak" },
+  ];
+
+  useEffect(() => {
+    const sections = navItems
+      .map(item => document.getElementById(item.id))
+      .filter((section): section is HTMLElement => section !== null);
+
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      entries => {
+        const visible = entries
+          .filter(entry => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visible[0]) {
+          setActiveSection(visible[0].target.id);
+        }
+      },
+      {
+        root: null,
+        rootMargin: "-40% 0px -40% 0px",
+        threshold: [0.2, 0.5, 0.8],
+      }
+    );
+
+    sections.forEach(section => observer.observe(section));
+
+    return () => {
+      sections.forEach(section => observer.unobserve(section));
+      observer.disconnect();
+    };
+  }, []);
+
+  const handleNavClick = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    setMobileMenuOpen(false);
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -165,25 +214,29 @@ export default function Home() {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex gap-8">
-            <a href="#services" className="text-[#2C3E50] hover:text-[#001B44] transition">
-              Layanan
-            </a>
-            <a href="#portfolio" className="text-[#2C3E50] hover:text-[#001B44] transition">
-              Portofolio
-            </a>
-            <a href="#testimonials" className="text-[#2C3E50] hover:text-[#001B44] transition">
-              Testimoni
-            </a>
-            <a href="#contact" className="text-[#2C3E50] hover:text-[#001B44] transition">
-              Kontak
-            </a>
+          <div className="hidden md:flex gap-2 rounded-full bg-[#F5F5F5] p-1">
+            {navItems.map(item => (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => handleNavClick(item.id)}
+                className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+                  activeSection === item.id
+                    ? "bg-[#001B44] text-white shadow-sm"
+                    : "text-[#2C3E50] hover:bg-white hover:text-[#001B44]"
+                }`}
+                aria-current={activeSection === item.id ? "page" : undefined}
+              >
+                {item.label}
+              </button>
+            ))}
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden"
+            className="md:hidden rounded-md p-2 hover:bg-[#F5F5F5] transition"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
           >
             {mobileMenuOpen ? (
               <X className="w-6 h-6 text-[#001B44]" />
@@ -197,18 +250,20 @@ export default function Home() {
         {mobileMenuOpen && (
           <div className="md:hidden bg-white border-t border-[#E8E8E8] py-4">
             <div className="container flex flex-col gap-4">
-              <a href="#services" className="text-[#2C3E50] hover:text-[#001B44]">
-                Layanan
-              </a>
-              <a href="#portfolio" className="text-[#2C3E50] hover:text-[#001B44]">
-                Portofolio
-              </a>
-              <a href="#testimonials" className="text-[#2C3E50] hover:text-[#001B44]">
-                Testimoni
-              </a>
-              <a href="#contact" className="text-[#2C3E50] hover:text-[#001B44]">
-                Kontak
-              </a>
+              {navItems.map(item => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => handleNavClick(item.id)}
+                  className={`rounded-lg px-4 py-3 text-left font-medium transition ${
+                    activeSection === item.id
+                      ? "bg-[#001B44] text-white"
+                      : "text-[#2C3E50] hover:bg-[#F5F5F5] hover:text-[#001B44]"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
             </div>
           </div>
         )}
@@ -577,12 +632,11 @@ export default function Home() {
         href={whatsappLink}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 bg-[#25D366] text-white rounded-full p-4 shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 z-40 animate-pulse"
+        className="fixed bottom-5 right-5 md:bottom-6 md:right-6 z-40 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/40"
         title="Chat dengan kami di WhatsApp"
+        aria-label="Chat dengan kami di WhatsApp"
       >
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-5.031 1.378c-1.87 1.246-3.045 3.006-3.045 5.411 0 1.361.264 2.679.764 3.883L2.821 22.884l4.285-1.417c1.12.608 2.361.929 3.646.929 5.514 0 10-4.486 10-10S17.954 2.5 12.44 2.5c-2.64 0-5.15.996-7.044 2.79z" />
-        </svg>
+        <MessageCircle className="h-7 w-7" strokeWidth={2.25} />
       </a>
     </div>
   );
