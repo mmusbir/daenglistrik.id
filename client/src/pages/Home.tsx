@@ -161,7 +161,7 @@ export default function Home() {
       <nav className="fixed top-0 w-full bg-white shadow-sm z-50">
         <div className="container flex justify-between items-center py-4">
           <div className="flex items-center gap-3">
-            <img src="/storage/logo.png" alt="DAENG LISTRIK" className="h-12 w-auto" />
+            <img src="/storage/logo.png" alt="DAENG LISTRIK" className="h-16 w-auto" />
           </div>
 
           {/* Desktop Menu */}
@@ -517,7 +517,7 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <img src="/storage/logo.png" alt="DAENG LISTRIK" className="h-16 w-auto" />
+                <img src="/storage/logo.png" alt="DAENG LISTRIK" className="h-20 w-auto" />
               </div>
               <p className="text-gray-300">Solusi kelistrikan dan CCTV profesional untuk Makassar dan sekitarnya.</p>
             </div>
