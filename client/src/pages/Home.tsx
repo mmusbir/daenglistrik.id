@@ -6,6 +6,7 @@ import {
   Camera,
   CheckCircle,
   Star,
+  Navigation,
   MapPin,
   Phone,
   Clock,
@@ -164,6 +165,11 @@ export default function Home() {
     { id: "contact", label: "Kontak" },
   ];
 
+  const getNavOffset = () => {
+    const navElement = document.querySelector("nav");
+    return (navElement?.clientHeight ?? 88) + 12;
+  };
+
   useEffect(() => {
     const sections = navItems
       .map(item => document.getElementById(item.id))
@@ -171,35 +177,36 @@ export default function Home() {
 
     if (!sections.length) return;
 
-    const observer = new IntersectionObserver(
-      entries => {
-        const visible = entries
-          .filter(entry => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+    const updateActiveSection = () => {
+      const navOffset = getNavOffset();
+      const currentScroll = window.scrollY + navOffset + 20;
 
-        if (visible[0]) {
-          setActiveSection(visible[0].target.id);
-        }
-      },
-      {
-        root: null,
-        rootMargin: "-40% 0px -40% 0px",
-        threshold: [0.2, 0.5, 0.8],
+      const currentSection = [...sections]
+        .reverse()
+        .find(section => currentScroll >= section.offsetTop);
+
+      if (currentSection) {
+        setActiveSection(currentSection.id);
       }
-    );
+    };
 
-    sections.forEach(section => observer.observe(section));
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
 
     return () => {
-      sections.forEach(section => observer.unobserve(section));
-      observer.disconnect();
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
     };
   }, []);
 
   const handleNavClick = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
+      const top = section.offsetTop - getNavOffset();
+      window.scrollTo({ top, behavior: "smooth" });
+      setActiveSection(sectionId);
+      window.history.replaceState(null, "", `#${sectionId}`);
     }
     setMobileMenuOpen(false);
   };
@@ -601,13 +608,20 @@ export default function Home() {
             <div>
               <h4 className="font-bold mb-4">Kontak</h4>
               <ul className="space-y-2 text-gray-300">
-                <li>
+                <li className="flex items-center gap-2">
+                  <MessageCircle className="h-4 w-4 text-[#FFC107] shrink-0" />
                   <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="hover:text-[#FFC107] transition">
                     WhatsApp: {whatsappNumber}
                   </a>
                 </li>
-                <li>Makassar, Sulawesi Selatan</li>
-                <li>Layanan 24/7</li>
+                <li className="flex items-center gap-2">
+                  <MapPin className="h-4 w-4 text-[#FFC107] shrink-0" />
+                  <span>Makassar, Sulawesi Selatan</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Clock className="h-4 w-4 text-[#FFC107] shrink-0" />
+                  <span>Layanan 24/7</span>
+                </li>
               </ul>
             </div>
 
@@ -615,7 +629,10 @@ export default function Home() {
               <h4 className="font-bold mb-4">Area Layanan</h4>
               <ul className="space-y-2 text-gray-300 text-sm">
                 {serviceAreas.map((area) => (
-                  <li key={area}>{area}</li>
+                  <li key={area} className="flex items-center gap-2">
+                    <Navigation className="h-3.5 w-3.5 text-[#FFC107] shrink-0" />
+                    <span>{area}</span>
+                  </li>
                 ))}
               </ul>
             </div>
